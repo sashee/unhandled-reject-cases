@@ -132,8 +132,8 @@ const withResolvers = () => {
 	console.log("\n(case #6): starting work locally, reject");
 	const {promise, reject} = withResolvers();
 	const result = postTask(key, () => promise);
+	result.catch(() => {});
 	reject("failed #6");
-	await result.catch(() => {});
 	await setTimeout(100);
 }
 {
